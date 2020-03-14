@@ -46,7 +46,11 @@ const EmpSchema = mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'receivedTickets'
       }
-    ] 
+    ] ,
+    admin: {
+      type: Boolean,
+      default: false
+    }
 });
 
 EmpSchema.plugin(uniqueValidator);
