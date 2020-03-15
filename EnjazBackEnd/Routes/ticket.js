@@ -70,4 +70,23 @@ router.patch('/UpdateTicket/:TicketId', (req, res) => {
 
 });
 
+//-------------Update Ticket By Ticket Id-------------------
+router.delete('/DeleteTicket/:TicketId', (req, res) => {
+
+  Ticket.findById(req.params.TicketId, async (error, foundTicket) => {
+    try {
+      await foundTicket.remove();
+      res.status(200).json( `Ticket Id:  ${req.params.TicketId} has been deleted `);
+
+    } catch (error) {
+      res.status(404).json({ error:{
+        name: 'DocumentNotFound',
+        massage:'The provided ID dose not match any Document on Ticket'
+    } });
+    }
+
+  });
+
+});
+
 module.exports = router
