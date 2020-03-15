@@ -30,4 +30,28 @@ router.post('/:empId', (req, res) => {
   });
 });
 
+
+//-------------Pass ticket to another Emp-------------------
+router.patch('/PassTicket/:TicketId', (req, res) => {
+
+  Ticket.findById(req.params.TicketId, async (error, foundTicket) => {
+    try {
+      await foundTicket.TicketsEmp.push(req.body.TicketsEmp);
+    } catch (error) {
+      res.status(404).json(error);
+    }
+    Emp.findById(req.body.TicketsEmp, async (error, foundEmp) => {
+      try {
+        await foundTicket.save()
+        foundEmp.receivedTickets.push(foundTicket);
+        foundEmp.save()
+        res.status(200).json(foundTicket.TicketsEmp);
+      } catch (error) {
+        res.status(404).json(error);
+      }
+    })
+  });
+});
+
+
 module.exports = router
