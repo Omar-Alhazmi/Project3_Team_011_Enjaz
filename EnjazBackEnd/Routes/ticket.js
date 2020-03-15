@@ -54,4 +54,20 @@ router.patch('/PassTicket/:TicketId', (req, res) => {
 });
 
 
+//-------------Update Ticket-------------------
+router.patch('/UpdateTicket/:TicketId', (req, res) => {
+
+  Ticket.findById(req.params.TicketId, async (error, foundTicket) => {
+    try {
+      await foundTicket.update(req.body);
+      res.status(200).json(req.body);
+
+    } catch (error) {
+      res.status(404).json(error);
+    }
+
+  });
+
+});
+
 module.exports = router
