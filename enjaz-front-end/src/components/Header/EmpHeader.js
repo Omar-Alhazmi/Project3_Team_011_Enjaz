@@ -4,6 +4,8 @@ import './header.css';
 import SendTickets from '../SendTicket/SendTickets'
 import ReceivedTickets from '../ReceivedTickets/ReceivedTickets'
 import NewTicket from '../NewTicket/NewTicket';
+import { getInfo } from "../login/decodeToken";
+import { AddNewTicket } from "../api";
 
 export default class EmpHeader extends React.Component{
   constructor(props){
@@ -25,6 +27,21 @@ export default class EmpHeader extends React.Component{
     this.props.history.push('/Login')
     localStorage.clear('currentUser')
   }
+  addTicket = tic => {
+    // Make an axios request
+    console.log(tic, "Employee");
+    let mId = getInfo().data._id;
+    console.log(mId);
+    AddNewTicket(tic, mId)
+      .then(response => {
+        console.log(
+          `The Ticket ${tic.empFullName} has been added successfully.`
+        );
+      })
+      .catch(error => {
+        console.log("API ERROR: ", error);
+      });
+  };
     render(){
     return (
 <div className="page">
