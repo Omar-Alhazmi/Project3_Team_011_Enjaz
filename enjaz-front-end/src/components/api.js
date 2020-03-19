@@ -45,3 +45,16 @@ export const AddNewEmployee = req => {
     
   })
 }
+//Add new Tickect 
+export const AddNewTicket = (req,id) => {
+  return axios({
+    method: 'POST',
+    url: apiURL + `/${id}`,
+    data:{
+      TicketType:req.TicketType,
+      TicketDescription: req.TicketDescription,
+      TicketState: req.TicketState,
+    }
+    
+  });
+}
