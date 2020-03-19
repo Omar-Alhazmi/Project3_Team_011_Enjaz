@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+// const passport = require('../config/passport');
 const jwt = require('jsonwebtoken');
 const Emp = require('../models/Emp');
 const config = require('../config/bd');
 
+require("dotenv").config();
 
 
 router.post('/register', (req, res) => {
@@ -37,34 +39,38 @@ router.post('/register', (req, res) => {
 });
 
 
-router.post('/login', (req, res, next) => {
+
+
+router.post('/login', (req, res) => {
     const empUsername = req.body.empUsername;
     const password = req.body.password;
 
-    Emp.getUserByUsername(empUsername, (err, user) => {
+    Emp.getUserByUsername(empUsername, (err, emp) => {
         if (err) throw err;
-        if (!user) {
+        if (!emp) {
             return res.json({
                 success: false,
                 message: "Emp not found."
             });
         }
 
-        Emp.comparePassword(password, user.password, (err, isMatch) => {
+        Emp.comparePassword(password, emp.password, (err, isMatch) => {
             if (err) throw err;
             if (isMatch) {
                 const token = jwt.sign({
-                    type: "user",
+                    type: "emp",
                     data: {
-                        _id: user._id,
-                        empUsername: user.empUsername,
-                        empFullName: user.empFullName,
-                        email: user.email,
-                        empPhone: user.empPhone
+                        _id: emp._id,
+                        empUsername: emp.empUsername,
+                        empFullName: emp.empFullName,
+                        email: emp.email,
+                        empPhone: emp.empPhone,
+                        admin: emp.admin
                     }
-                }, config.secret, {
-                    expiresIn: 36000000 // for 1 week time in milliseconds
+                }, config.database.secret, {
+                    expiresIn: 36000000 // for 10 Hou time in seconds
                 });
+                console.log(token);
                 return res.json({
                     success: true,
                     token: "jwt " + token
@@ -78,5 +84,25 @@ router.post('/login', (req, res, next) => {
         });
     });
 });
+
+
+//  Get Authenticated user profile
+ 
+
+router.get('/profile', passport.authenticate('jwt', {
+    session: false
+}), (req, res) => {
+    console.log(`emp login success ${req.user}`);
+    return res.json(
+        req.user
+    );
+}
+
+);
+
+
+  
+
+  
 
 module.exports = router;
