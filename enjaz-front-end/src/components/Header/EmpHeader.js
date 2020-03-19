@@ -20,6 +20,11 @@ export default class EmpHeader extends React.Component{
       toggle: !this.state.toggle
     })
   }
+  logOut= e =>{
+    e.preventDefault();
+    this.props.history.push('/Login')
+    localStorage.clear('currentUser')
+  }
     render(){
     return (
 <div className="page">
@@ -38,11 +43,8 @@ export default class EmpHeader extends React.Component{
 
     <div className="nav-content" tabindex="0">
       <ul>
-
-        <li>LogOut</li>
+      <li onClick={e => this.logOut(e)}>LogOut</li>
         <li><a>New Ticket</a></li>
-
-
     </ul>
     </div>
   </div>
