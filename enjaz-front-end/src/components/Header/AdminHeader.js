@@ -43,6 +43,11 @@ export default class AdminHeader extends React.Component {
             });
         }
     }
+    logOut= e =>{
+        e.preventDefault();
+        this.props.history.push('/Login')
+        localStorage.clear('currentUser')
+      }
 
     render() {
         console.log(getInfo())
