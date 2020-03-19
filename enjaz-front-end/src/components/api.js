@@ -9,3 +9,7 @@ export const getAllTicket = () => {
 export const getEmpSendTickets = (id) => {
     return axios.get(`${apiURL}/emp/SendTickets/${id}`);
   } 
+// Get ALl Emp ReceivedTickets By Emp ID
+export const getreceivedTickets = (id) => {
+    return axios.get(`${apiURL}/emp/ReceivedTickets/${id}`);
+  } 
