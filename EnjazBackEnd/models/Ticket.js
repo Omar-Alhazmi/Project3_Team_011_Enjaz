@@ -13,7 +13,7 @@ const TicketSchema = mongoose.Schema({
       TicketState: {
         type: String,
         required: [true, 'Ticket State required'],
-        enum:['Open', 'onProgress','closed']
+        enum:['Open', 'On Progress','closed']
       },
       TicketsEmp: [
         {
