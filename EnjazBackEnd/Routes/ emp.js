@@ -124,10 +124,4 @@ router.get('/ReceivedTickets/:EmpId', (req, res) => {
         });
 
       });
-  
-
-  
-
-  
-
 module.exports = router;
