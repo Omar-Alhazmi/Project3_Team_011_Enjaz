@@ -13,3 +13,13 @@ export const getEmpSendTickets = (id) => {
 export const getreceivedTickets = (id) => {
     return axios.get(`${apiURL}/emp/ReceivedTickets/${id}`);
   } 
+//close Ticket 
+export const closeTicket = (id) => {
+    return axios({
+      method: 'patch',
+      url: apiURL + `/UpdateTicket/${id}`,
+      data:{
+        TicketState: 'closed',
+      }
+    })
+  }  
