@@ -30,3 +30,44 @@ export const deleteTicket = (id) => {
       url: apiURL + `/DeleteTicket/${id}`,
     })
   }  
+  //Add new Employee
+export const AddNewEmployee = req => {
+  return axios({
+    method: 'POST',
+    url: apiURL + '/emp/register',
+    data:{
+      empFullName:req.empFullName,
+        email: req.email,
+        empUsername:req.empUsername,
+        password: req.password,
+        empPhone: req.empPhone,
+    }
+    
+  })
+}
+//Add new Tickect 
+export const AddNewTicket = (req,id) => {
+  return axios({
+    method: 'POST',
+    url: apiURL + `/${id}`,
+    data:{
+      TicketType:req.TicketType,
+      TicketDescription: req.TicketDescription,
+      TicketState: req.TicketState,
+    }
+    
+  });
+}
+//Update Ticket 
+export const UpdateTicket = (req,id) => {
+  return axios({
+    method: 'patch',
+    url: apiURL + `/UpdateTicket/${id}`,
+    data:{
+      TicketType:req.TicketType,
+      TicketDescription: req.TicketDescription,
+      TicketState: req.TicketState,
+    }
+    
+  })
+}
