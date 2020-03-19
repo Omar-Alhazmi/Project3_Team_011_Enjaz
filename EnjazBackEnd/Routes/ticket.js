@@ -27,9 +27,22 @@ router.post('/:empId', (req, res) => {
 });
 
 
+//-------------Get all tickets-------------------
+router.get('/emp/allTickets', (req, res) => {
+  Ticket.find({})
+  .populate('TicketsEmp')
+  .exec((err, Emp) => {
+    if (err) {
+      res.status(500).send(err);
+      return;
+    }
+    console.log(`emp login success ${req.user}`);
+    console.log(`found and populated all : ${Emp}`);
+    res.json(Emp);
+  });
+});
 //-------------Pass ticket to another Emp-------------------
 router.patch('/PassTicket/:TicketId', (req, res) => {
-
   Ticket.findById(req.params.TicketId, async (error, foundTicket) => {
     try {
       await foundTicket.TicketsEmp.push(req.body.TicketsEmp);
@@ -48,41 +61,29 @@ router.patch('/PassTicket/:TicketId', (req, res) => {
     })
   });
 });
-
-
-//-------------Update Ticket-------------------
+//-------------Update Ticket by ticket Id-------------------
 router.patch('/UpdateTicket/:TicketId', (req, res) => {
-
   Ticket.findById(req.params.TicketId, async (error, foundTicket) => {
     try {
       await foundTicket.update(req.body);
       res.status(200).json(req.body);
-
     } catch (error) {
       res.status(404).json(error);
     }
-
   });
-
 });
-
-//-------------Update Ticket By Ticket Id-------------------
+//-------------Delete Ticket by ticket Id-------------------
 router.delete('/DeleteTicket/:TicketId', (req, res) => {
-
   Ticket.findById(req.params.TicketId, async (error, foundTicket) => {
     try {
       await foundTicket.remove();
       res.status(200).json( `Ticket Id:  ${req.params.TicketId} has been deleted `);
-
     } catch (error) {
       res.status(404).json({ error:{
         name: 'DocumentNotFound',
         massage:'The provided ID dose not match any Document on Ticket'
     } });
     }
-
   });
-
 });
-
 module.exports = router

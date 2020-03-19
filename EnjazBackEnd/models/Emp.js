@@ -38,13 +38,13 @@ const EmpSchema = mongoose.Schema({
     sendTickets: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'sendTickets'
+        ref: 'Ticket'
       }
     ]  ,
     receivedTickets: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'receivedTickets'
+        ref: 'Ticket'
       }
     ] ,
     admin: {

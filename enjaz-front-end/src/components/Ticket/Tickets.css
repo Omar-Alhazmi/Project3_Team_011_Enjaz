@@ -1,0 +1,111 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+[class*="entypo-"] {
+  width: 1em;
+  height: 1em;
+}
+body {
+  /* background: rgb(206, 206, 206); */
+  background: rgb(221, 221, 221);
+  font-family: 'Raleway', sans-serif;
+}
+span,
+h1,
+h2,
+h3,
+span {
+  text-decoration: none;
+  color: #999;
+}
+h1 {
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1.5px;
+  color: #777;
+  font-weight: 100;
+  font-size: 2.4em;
+  margin: 0;
+  border-bottom: 1px solid lightsteelblue;
+  padding-bottom: 0.2em;
+}
+h2 {
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1.5px;
+  color: #999;
+  font-weight: 100;
+  font-size: 1.0em;
+}
+.content {
+  margin-top: 50px;
+  text-align: center;
+}
+.all{
+  border-left: 0.25em solid #4298c3;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 2em auto;
+  line-height: 1.4em;
+  padding: 1em;
+  padding-left: 3em;
+  list-style: none;
+  text-align: left;
+  margin-left: 1em;
+  margin-right: 5em;
+  border-radius: 0.5em;
+   width: 35em;
+}
+.event {
+  
+  vertical-align: middle;
+  box-sizing: border-box;
+  position: relative;
+}
+.timeline .event:before,
+.timeline .event:after {
+  position: absolute;
+  display: block;
+  top: 1em;
+}
+.timeline .event:before {
+  left: -15em;
+  color: rgba(255, 255, 255, 0.8);
+  content: attr(data-date);
+  text-align: right;
+  font-weight: 100;
+  font-size: 0.9em;
+  min-width: 9em;
+}
+.timeline .event:after {
+  box-shadow: 0 0 0 0.2em #4298c3;
+  left: -3.5em;
+  background: #ffffff;
+  border-radius: 50%;
+  height: 0.75em;
+  width: 0.75em;
+  content: "";
+}
+.timeline .event .member-location{
+  display: none;
+}
+.timeline .event:last-of-type .member-location {
+  display: block;
+}
+.member-infos {
+  padding: 10px;
+}
+.member-infos > h1 {
+  font-size: 1.4em;
+  text-align: left;
+  position: relative;
+}
+.shots-number{
+    font-size: .9em;
+    position: relative;
+    text-align: right;
+}
+.DescriptionFltir-none{
+  cursor: pointer;  
+  text-indent: 2px;
+  display: none;
+}
