@@ -1,10 +1,11 @@
+
 // Creating a base name for the MongoDB
 const mongooseBaseName = 'prtest';
 
 // Create the MongoDB URI for Development and Test
 const database = {
   development: `mongodb://localhost/${mongooseBaseName}-development`,
-  secret: 'your-secret',
+  secret: 'secret',
   test: `mongodb://localhost/${mongooseBaseName}-test`,
 }
 
@@ -17,4 +18,4 @@ const localDB = process.env.TESTENV ? database.test : database.development;
 const currentDB = process.env.MONGODB_URI || localDB;
 
 // Export the appropriate database based om the current environment
-module.exports = currentDB;
+module.exports = {currentDB,database};
