@@ -3,13 +3,13 @@ const db = require('./bd');
 require('dotenv/config');
 
 mongoose.set('useCreateIndex', true);
-
+const cdb = db.currentDB
 const connectDB = async () => {
   await  mongoose.connect(
-    db,
+    cdb,
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => {
-      console.log('=========the connection with mongodb is ESTABLISHED=======',db);
+      console.log('=========the connection with mongodb is ESTABLISHED=======',cdb);
     }
   );}
   
