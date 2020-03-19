@@ -47,7 +47,7 @@ export default class AdminHeader extends React.Component {
     }
     logOut = e => {
         e.preventDefault();
-        this.props.history.push('/Login')
+        this.props.history.push('/')
         localStorage.clear('currentUser')
     }
     AddClicked = () => {
@@ -82,9 +82,9 @@ export default class AdminHeader extends React.Component {
                             <li onClick={this.TicketClicked}>NewEmployee</li>
 
                             <li>
-                                <a href="">History</a>
+                               History
                             </li>
-                            <li><a onClick={e => this.logOut(e)}>Log out </a></li>
+                            <li onClick={e => this.logOut(e)}> Log out </li>
                         </ul>
                     </div>
                 </div>

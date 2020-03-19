@@ -68,7 +68,7 @@ export default class Tickets extends React.Component{
           id={Tickets._id}
           TicketType={Tickets.TicketType}
           TicketState={Tickets.TicketState}
-          deleteOneTicket={this.closeOneTicket}
+          deleteOneTicket={this.deleteOneTicket}
           TicketDescription={Tickets.TicketDescription}
           closeOneTicket={this.closeOneTicket}
           key={index} /> 

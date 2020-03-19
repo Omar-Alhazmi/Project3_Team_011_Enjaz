@@ -22,6 +22,10 @@ closeClick = (e) => {
   e.preventDefault();
   this.props.closeOneTicket(this.props.id);
 }
+delete = (e) => {
+  e.preventDefault();
+  this.props.deleteOneTicket(this.props.id);
+}
   render(){
     return(
       <li className="event">
@@ -32,7 +36,7 @@ closeClick = (e) => {
           <button className="raise"
           onClick={this.closeClick}> Close </button>
           <button className="raise"
-          onClick={this.closeClick}> Delete </button> </span>
+          onClick={this.delete}> Delete </button> </span>
         </h1>
         <div className={`DescriptionFltir-${this.state.Fltir}`}>
           <span>{this.props.TicketType}</span>

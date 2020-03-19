@@ -1,6 +1,5 @@
 // ReceivedTicket
 import React from 'react';
-import '../SendTicket/SendTickets.css';
 import EditTicket from '../NewTicket/EditTicket';
 import { getInfo } from '../login/decodeToken';
 import {UpdateTicket} from '../api';
@@ -10,6 +9,7 @@ export default class ReceivedTicket extends React.Component {
         super(props)
 
         this.state = {
+            toggle:false,
             Fltir: 'none',
         };
     }
@@ -18,11 +18,9 @@ export default class ReceivedTicket extends React.Component {
         console.log(tic,"Employee");
         let mId = getInfo().data._id
       
-        UpdateTicket(tic,mId)
+        UpdateTicket(tic,this.props.id)
           .then(response => {
-            console.log(
-              `The Ticket ${response.tic.TicketType} has been Edit successfully.`
-            );
+                //alert message!!!!!!!!    
               })
           .catch(error => {
             console.log("API ERROR: ", error);
@@ -40,7 +38,8 @@ export default class ReceivedTicket extends React.Component {
         }
     }
 
-    togglehandler() {
+    togglehandler(e) {
+        e.preventDefault();
         this.setState({
             toggle: true
         })
@@ -59,7 +58,7 @@ export default class ReceivedTicket extends React.Component {
                         </h1>
                         <div className={`Description-${this.state.Fltir}`}>
                             <p>{this.props.TicketDescription}</p>
-                            <button onClick={() => this.togglehandler()} className="raise"> Edit </button>
+                            <button onClick={e => this.togglehandler(e)} className="raise"> Edit </button>
                         </div>
                     </div>
                 </li>
