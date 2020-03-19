@@ -44,7 +44,7 @@ class Login extends Component {
           this.props.history.push("/EmpHeader");
         } else if (jwt1 === undefined) {
           console.log("b: ", jwt1);
-          this.props.history.push("/Login");
+          this.props.history.push("/");
         }
 
         return res;

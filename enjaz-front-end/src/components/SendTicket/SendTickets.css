@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin:400,700&subset=latin-ext");
+  
+.TimeLineSendTickets {
+  border-left: 0.25em solid #4298c3;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  line-height: 1.4em;
+  padding: 1em;
+  /* padding-left: 3em; */
+  list-style: none;
+  text-align: left;
+  margin-left: 0em;
+  /* margin-right: 0em; */
+  border-radius: 0.5em;
+  /* min-width: 15em; */
+  width: 20em;
+}
+.TimeLineSendTickets {
+  border-left: 0.25em solid #4298c3;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  line-height: 1.4em;
+  padding: 1em;
+  padding-left: 3em;
+  list-style: none;
+  text-align: left;
+  /* margin-left: 25em; */
+  margin-right: 45em;
+  border-radius: 0.5em;
+  /* min-width: 15em; */
+  width: 20em;
+}
+.card {
+max-width: 500px;
+margin: 2rem auto;
+background-color: #3b3a36a9;
+padding: 2rem;
+position: relative;
+}
+.card:before,
+.card:after,
+.Description:before,
+.Description:after,
+p:before,
+p:after {
+content: "";
+display: block;
+width: 2rem;
+height: 2rem;
+background-color: #e3e4e3;
+position: absolute;
+}
+.card:before {
+top: 0;
+left: 0;
+border-bottom-right-radius: 100%;
+box-shadow: -1px -1px #e3e4e3;
+}
+.card:after {
+bottom: 0;
+right: 0;
+border-top-left-radius: 100%;
+box-shadow: 1px 1px #e3e4e3;
+}
+p,.Description{
+padding: 0.3rem;
+font-family: "Cabin", sans-serif;
+font-size: 1.1rem;
+line-height: 1.35;
+color: snow;
+}
+p:before,
+.Description:before{
+top: 0;
+right: 0;
+border-bottom-left-radius: 100%;
+box-shadow: 1px -1px #e3e4e3;
+/* lightblue */
+}
+p:after,
+.Description:after{
+bottom: 0;
+left: 0;
+border-top-right-radius: 100%;
+box-shadow: -1px 1px #e3e4e3;
+}
+.Description-none{
+  cursor: pointer;  
+  text-indent: 2px;
+  display: none;
+} 
+button {
+  background: none;
+  border: 2px solid;
+  line-height: 1;
+}

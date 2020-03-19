@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require('./bd');
+const db = require('./db');
 require('dotenv/config');
 
 mongoose.set('useCreateIndex', true);
