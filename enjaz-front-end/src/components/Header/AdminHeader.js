@@ -4,6 +4,8 @@ import "./header.css";
 import Tickets from "../Ticket/Tickets";
 import { getAllTicket } from "../api";
 import { getInfo } from '../login/decodeToken'
+import NewEmployee from "../manager/NewEmployee";
+
 export default class AdminHeader extends React.Component {
     constructor(props) {
         super(props);
@@ -43,12 +45,25 @@ export default class AdminHeader extends React.Component {
             });
         }
     }
-    logOut= e =>{
+    logOut = e => {
         e.preventDefault();
         this.props.history.push('/Login')
         localStorage.clear('currentUser')
-      }
-
+    }
+    AddClicked = () => {
+        if (this.state.FltirTicket === 'display') {
+            this.setState({
+                FltirTicket: 'none',
+                Fltir: 'display'
+            });
+        }
+        else {
+            this.setState({
+                FltirTicket: 'display',
+                Fltir: 'none'
+            });
+        }
+    }
     render() {
         console.log(getInfo())
         return (
@@ -79,6 +94,7 @@ export default class AdminHeader extends React.Component {
                             <Tickets />
                         </div>
                         <div className={`NewEmployee-${this.state.Fltir}`}>
+                            <NewEmployee AddClicked={this.AddClicked} />
                         </div>
                     </div>
                 </main>
