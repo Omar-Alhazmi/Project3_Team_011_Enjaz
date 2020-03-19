@@ -69,9 +69,7 @@ export default class AdminHeader extends React.Component {
                             <li>
                                 <a href="">History</a>
                             </li>
-                            <li>
-                                <a onClick={e => this.logOut(e)}>Log out </a>
-                            </li>
+                            <li><a onClick={e => this.logOut(e)}>Log out </a></li>
                         </ul>
                     </div>
                 </div>
