@@ -1,7 +1,9 @@
 // ReceivedTicket
 import React from 'react';
 import '../SendTicket/SendTickets.css';
-
+import EditTicket from '../NewTicket/EditTicket';
+import { getInfo } from '../login/decodeToken';
+import {UpdateTicket} from '../api';
 export default class ReceivedTicket extends React.Component {
 
     constructor(props) {
@@ -11,7 +13,21 @@ export default class ReceivedTicket extends React.Component {
             Fltir: 'none',
         };
     }
-
+    EditUpdateTicket = (tic) => {
+        // Make an axios request
+        console.log(tic,"Employee");
+        let mId = getInfo().data._id
+      
+        UpdateTicket(tic,mId)
+          .then(response => {
+            console.log(
+              `The Ticket ${response.tic.TicketType} has been Edit successfully.`
+            );
+              })
+          .catch(error => {
+            console.log("API ERROR: ", error);
+          });
+      };
     // To display or not the ticket description  
     TicketClicked = (e) => {
         if (this.state.Fltir === 'none') {
@@ -32,6 +48,8 @@ export default class ReceivedTicket extends React.Component {
     render() {
         return (
             <div>
+                { this.state.toggle=== false?
+
                 <li className="event">
                     <div className="member-infos">
                         <h1 onClick={this.TicketClicked}>
@@ -45,6 +63,8 @@ export default class ReceivedTicket extends React.Component {
                         </div>
                     </div>
                 </li>
+                :  <EditTicket  EditUpdateTicket={this.EditUpdateTicket}/>
+  }
             </div>
         );
     }
