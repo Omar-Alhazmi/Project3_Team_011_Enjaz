@@ -58,3 +58,16 @@ export const AddNewTicket = (req,id) => {
     
   });
 }
+//Update Ticket 
+export const UpdateTicket = (req,id) => {
+  return axios({
+    method: 'patch',
+    url: apiURL + `/UpdateTicket/${id}`,
+    data:{
+      TicketType:req.TicketType,
+      TicketDescription: req.TicketDescription,
+      TicketState: req.TicketState,
+    }
+    
+  })
+}
