@@ -23,3 +23,10 @@ export const closeTicket = (id) => {
       }
     })
   }  
+//delete Ticket 
+export const deleteTicket = (id) => {
+    return axios({
+      method: 'delete',
+      url: apiURL + `/DeleteTicket/${id}`,
+    })
+  }  
