@@ -27,7 +27,7 @@ export default class SendTicket extends React.Component{
                 {this.props.TicketState}
            </h1>
            <div className={`Description-${this.state.Fltir}`}>
-                {this.props.TicketDescription}
+             <h2> {this.props.TicketDescription} </h2>
                 <div class="member-parameters">
                 <li class="member-follower">
                   <span class="followers">
