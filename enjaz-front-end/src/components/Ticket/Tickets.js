@@ -77,7 +77,7 @@ export default class Tickets extends React.Component{
     return(
         <div className="content">
             <h2>ALL Ticket</h2>
-            <ul className="all">
+            <ul className="timeline">
             {allTickets}
         </ul>
         </div>);
