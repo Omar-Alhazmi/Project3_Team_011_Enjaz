@@ -2,6 +2,7 @@
 import React from 'react';
 import ReceivedTicket from './ReceivedTicket'
 import { getreceivedTickets } from '../api';
+// import '../Ticket/Tickets.css';
 import '../SendTicket/SendTickets.css';
 import { getInfo } from '../login/decodeToken'
 

@@ -55,9 +55,9 @@ export default class ReceivedTicket extends React.Component {
                             {this.props.TicketState}
                         </h1>
                         <div className={`Description-${this.state.Fltir}`}>
-                            <p>{this.props.TicketDescription}</p>
+                        <span className="shots-number"> {this.props.TicketType} </span>
+                        <h2> {this.props.TicketDescription} </h2>
                             <button onClick={e => this.togglehandler(e)} className="raise"> Edit </button>
-                            <span className="shots-number"> {this.props.TicketType} </span>
                         </div>
                     </div>
                 </li>
