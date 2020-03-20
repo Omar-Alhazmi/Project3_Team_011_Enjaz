@@ -2,70 +2,36 @@
 import React from "react";
 import "./header.css";
 import Tickets from "../Ticket/Tickets";
-import { getAllTicket } from "../api";
-import { getInfo } from '../login/decodeToken'
+import HistoryTickets from '../HistoryTickets/HistoryTickets'
 import NewEmployee from "../manager/NewEmployee";
 
 export default class AdminHeader extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            history: null,
-            Fltir: "none",
-            FltirTicket: "display"
+            toggle: false,
+            toggleHistory:true,
         };
     }
-    componentDidMount() {
-        // Mack API call
-        getAllTicket()
-            .then(reponse => {
-                console.log("reponse.data", reponse.data);
-                const history = reponse.data.filter(Ticket => {
-                    if (Ticket.TicketState === "closed") {
-                        return reponse.data;
-                    }
-                });
-                this.setState({ history });
-            })
-            .catch(error => {
-                console.log(" API error: ", error);
-            });
-    }
-    TicketClicked = (e) => {
-        if (this.state.Fltir === 'none') {
-            this.setState({
-                Fltir: 'display',
-                FltirTicket: 'none'
-            });
-        }
-        else {
-            this.setState({
-                Fltir: 'none',
-                FltirTicket: 'display'
-            });
-        }
-    }
+    togglehandler(e){
+        e.preventDefault();
+    
+        this.setState({
+          toggle: !this.state.toggle
+        })
+      }
+    togglehandler_HistoryTickets(e){
+        e.preventDefault();
+        this.setState({
+            toggleHistory: !this.state.toggleHistory
+        })
+      }
     logOut = e => {
         e.preventDefault();
         this.props.history.push('/')
         localStorage.clear('currentUser')
     }
-    AddClicked = () => {
-        if (this.state.FltirTicket === 'display') {
-            this.setState({
-                FltirTicket: 'none',
-                Fltir: 'display'
-            });
-        }
-        else {
-            this.setState({
-                FltirTicket: 'display',
-                Fltir: 'none'
-            });
-        }
-    }
     render() {
-        console.log(getInfo())
         return (
             <div className="page">
                 <header tabindex="0">Enjaz</header>
@@ -79,24 +45,26 @@ export default class AdminHeader extends React.Component {
 
                     <div className="nav-content" tabindex="0">
                         <ul>
-                            <li onClick={this.TicketClicked}>NewEmployee</li>
+                            <li onClick={e=>this.togglehandler(e)}>NewEmployee</li>
 
-                            <li>
-                               History
+                            <li onClick={e=>this.togglehandler_HistoryTickets(e) }>
+                                History
                             </li>
                             <li onClick={e => this.logOut(e)}> Log out </li>
                         </ul>
                     </div>
                 </div>
                 <main>
-                    <div className="content">
-                        <div className={`Tickets-${this.state.FltirTicket}`}>
-                            <Tickets />
-                        </div>
-                        <div className={`NewEmployee-${this.state.Fltir}`}>
-                            <NewEmployee AddClicked={this.AddClicked} />
-                        </div>
-                    </div>
+                    {this.state.toggle === false ?
+                        <>
+                            {this.state.toggleHistory === false ?
+                                <HistoryTickets toggle={e => this.togglehandler_HistoryTickets(e)}/>
+
+                                :
+                                <Tickets/>
+                            }</>
+                        : <NewEmployee AddClicked={this.AddClicked} />
+                    }
                 </main>
             </div>
         );
