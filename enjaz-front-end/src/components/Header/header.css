@@ -109,7 +109,7 @@ main small {
 .nav-content {
   margin-top: 70px;
   padding: 20px;
-  width: 19%;
+  width: 25%;
   max-width: 300px;
   position: absolute;
   top: 0;
@@ -128,13 +128,14 @@ main small {
   display: flex;
   flex-direction: column;
 }
-.nav-content li li {
+.nav-content li  {
   padding: 10px 5px;
   display: block;
   text-transform: uppercase;
   transition: color .1s;
 }
-.nav-content li a:hover {
+.nav-content li:hover {
+  cursor: pointer;
   color: lightsteelblue;
 }
 .nav-content li:not(.small) + .small {
@@ -187,27 +188,6 @@ img {
   height: auto;
   width: 100%;
 }
-.container-SendTickets{
-  position: fixed;
-  left: 2%;
-  margin-top: 10vh;
-  width: 30em;
-  height: 30em;
-  box-shadow: 10px 10px 5px rgb(134, 126, 126) ;
-  background-color:transparent;
-  overflow: scroll;
-}  
-.container-ReceivedTickets{
-  position: fixed;
-  right: 1%;
-  margin-top: 10vh;
-  width: 30em;
-  height: 30em;
-  box-shadow: 10px 10px 5px rgb(134, 126, 126) ;
-  background-color:transparent;
-  overflow: scroll;
-}
-
 .NewEmployee-none{
   display: none;
 

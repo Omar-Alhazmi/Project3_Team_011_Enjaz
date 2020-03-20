@@ -53,7 +53,7 @@ export default class ReceivedTickets extends React.Component {
         return (
             <div className="content">
                 <h2>Received Ticket</h2>
-                <ul className="TimeLineReceivedTickets">
+                <ul className="timeline">
                     {allTickets}
                 </ul>
             </div>);

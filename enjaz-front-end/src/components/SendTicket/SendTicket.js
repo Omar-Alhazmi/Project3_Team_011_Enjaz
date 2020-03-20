@@ -9,6 +9,7 @@ export default class SendTicket extends React.Component{
   }
    // To display or not the ticket description  
    TicketClicked = (e) => {
+    e.preventDefault();
     if( this.state.Fltir === 'none'){
        this.setState({ 
          Fltir:'display', }); 
@@ -19,15 +20,25 @@ export default class SendTicket extends React.Component{
 }
   render(){
     return(
-        <div className="card">
-            <h1 onClick={this.TicketClicked}>
+        <li className="event">
+          <div className="member-infos">
+            <h1 className="member-title"
+            onClick={e => this.TicketClicked(e)}>
                 {this.props.TicketState}
-                <span className="shots-number"> 
-                {this.props.TicketType} </span>
            </h1>
-            <p className={`Description-${this.state.Fltir}`}>
-                {this.props.TicketDescription}</p>
-        </div>
+           <div className={`Description-${this.state.Fltir}`}>
+                {this.props.TicketDescription}
+                <div class="member-parameters">
+                <li class="member-follower">
+                  <span class="followers">
+                  {this.props.TicketType}
+                  </span>
+                  </li>
+                </div>
+          </div>
+          
+          </div>        
+        </li>
     );
   }
 }

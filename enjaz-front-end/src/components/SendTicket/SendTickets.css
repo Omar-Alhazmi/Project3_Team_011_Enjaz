@@ -13,6 +13,7 @@ h1 {
   margin: 0;
   border-bottom: 1px solid #777;
   padding-bottom: 0.2em;
+  cursor: pointer;
 }
 
 h2 {
@@ -78,13 +79,11 @@ h2 {
   content: "";
 }
 
-.timeline .event .member-location,
-.timeline .event .member-parameters {
+.timeline{
   display: none;
 }
 
-.timeline .event:last-of-type .member-location,
-.timeline .event:last-of-type .member-parameters {
+.timeline{
   display: block;
 }
 
@@ -133,7 +132,7 @@ h2 {
   font-weight: bold;
   vertical-align: bottom;
   line-height: 8px;
-  float: right;
+  /* float: right; */
 }
 
 .member-socials li {
@@ -164,4 +163,17 @@ h2 {
   border-right: 1px solid rgba(0, 0, 0, 0.06);
   margin-right: 6px;
   margin-left: 6px;
+}
+.Description-none{
+  cursor: pointer;  
+  text-indent: 2px;
+  display: none;
+} 
+button {
+  padding: 2%;
+  border-radius: 12px;
+  cursor: pointer;
+  background: none;
+  border: 2px solid;
+  line-height: 1;
 }
