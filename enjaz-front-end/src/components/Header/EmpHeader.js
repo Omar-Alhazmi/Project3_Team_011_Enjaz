@@ -13,6 +13,7 @@ export default class EmpHeader extends React.Component{
     this.state = {
   
       toggle: false,
+      toggleTicket:true,
     };
   }
   togglehandler(e){
@@ -20,6 +21,12 @@ export default class EmpHeader extends React.Component{
 
     this.setState({
       toggle: !this.state.toggle
+    })
+  }
+  togglehandler_SendTickets(e){
+    e.preventDefault();
+    this.setState({
+      toggleTicket: !this.state.toggleTicket
     })
   }
   logOut= e =>{
@@ -60,28 +67,28 @@ export default class EmpHeader extends React.Component{
 
     <div className="nav-content" tabindex="0">
       <ul>
-      <li onClick={e => this.logOut(e)}>LogOut</li>
+      <li onClick={e=>this.togglehandler_SendTickets(e)}>Your Tickets</li>
       <li onClick={e=>this.togglehandler(e)}>New Ticket</li>
+      <li onClick={e => this.logOut(e)}>LogOut</li>
     </ul>
     </div>
   </div>
 
-  <main>
- 
-  {this.state.toggle === false?
-<>
 
-    <div className="container-SendTickets">
-    <SendTickets />
-    </div>
-    <div className="container-ReceivedTickets">
+
+  <main>
+      {this.state.toggle === false?
+<>
+  {this.state.toggleTicket === false?
+    <SendTickets toggle={e => this.togglehandler_SendTickets(e)} />
+
+  :  
     <ReceivedTickets />
-    </div>
-</>
+  }</>
     : <NewTicket addTicket={this.addTicket} />
     }
-
   </main>
+
 
 
 </div>
