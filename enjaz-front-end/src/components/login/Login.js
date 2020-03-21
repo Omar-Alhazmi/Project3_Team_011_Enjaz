@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import apiURL from'../../APIconfig';
+
 import { getInfo } from "./decodeToken";
 
 import "./login.css";
@@ -27,7 +29,7 @@ class Login extends Component {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/emp/login", {
+      .post(`${apiURL}/emp/login`, {
         empUsername: this.state.empUsername,
         password: this.state.password
       })
