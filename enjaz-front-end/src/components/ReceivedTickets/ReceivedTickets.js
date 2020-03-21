@@ -12,7 +12,7 @@ export default class ReceivedTickets extends React.Component {
         super(props)
 
         this.state = {
-            Emp_ReceivedTickets: [],
+            Emp_ReceivedTickets: null,
         };
     }
     componentDidMount() {
@@ -39,7 +39,7 @@ export default class ReceivedTickets extends React.Component {
     render() {
         let allTickets = <h3> No Tickets! :( </h3>
 
-        if (this.state.Emp_ReceivedTickets.length > 0) {
+        if (this.state.Emp_ReceivedTickets !== null ) {
             allTickets = this.state.Emp_ReceivedTickets.map((Tickets, index) => {
                 return (
                     <ReceivedTicket
