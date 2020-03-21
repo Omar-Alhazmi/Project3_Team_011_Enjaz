@@ -37,7 +37,7 @@ export default class AdminHeader extends React.Component {
                 <header tabindex="0">Enjaz</header>
                 <div className="nav-container">
                     <div className="bg"></div>
-                    <div className="button" tabindex="0">
+                    <div className="button"tabindex="0" >
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
