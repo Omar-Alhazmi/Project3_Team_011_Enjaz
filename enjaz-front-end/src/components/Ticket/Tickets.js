@@ -1,7 +1,7 @@
 //ALL  Tickets 
 import React from 'react';
 import Ticket from './Ticket'
-import { getAllTicket , closeTicket ,deleteTicket } from '../api';
+import { getAllTicket , closeTicket } from '../api';
 import './Tickets.css'; 
 export default class Tickets extends React.Component{
     constructor(props){
@@ -11,7 +11,7 @@ export default class Tickets extends React.Component{
         };
       }
     componentDidMount(){
-        // Mack API call 
+         // Mack API call to det all the Ticket that not have closed state  
         getAllTicket()
         .then( (repose)=>{
             console.log('repose.data' , repose.data )
@@ -25,38 +25,16 @@ export default class Tickets extends React.Component{
             console.log(' API error: ',error );
         })
     }
-    // Make an API Call to Delete an Ticket
-    deleteOneTicket = (id) => {
-        console.log('This Ticket ID to Delete 2', id);
-        deleteTicket(id)
-            .then((res) => {
-                console.log(`The Ticket ID to Delete${id} , hasa been deleted`);
-                const newList = this.state.Tickets.filter((Ticket) => {
-                    return Ticket._id !== id;
-                });
-                this.setState({ Tickets: newList });
-                // this.setTickets(newList);
-                console.log(' newList ==> deleteOneTicket : ', newList);
-            })
-            .catch((err) => {
-                console.log(' fun closeClick deleteTicket ==>  ', err);
-            })
-    }
-          // Make an API Call to Delete an Ticket
           closeOneTicket = (id) => {
-            console.log('This Ticket ID to Delete', id);
+               // Make an API Call to close a ticket
             closeTicket(id)
             .then( (res)=>{
-              console.log(`The Ticket ID to Delete${id} , hasa been deleted`);
               const newList = this.state.Tickets.filter((Ticket) => {
                   return Ticket._id !== id;
                 });
                 this.setState( {Tickets:newList} );
-                // this.setTickets(newList);
-                console.log(' newList ==>  ', newList);
             })
              .catch( (err)=>{
-              console.log(' fun closeClick ==>  ', err);
              })
           }
    render(){
@@ -68,7 +46,6 @@ export default class Tickets extends React.Component{
           id={Tickets._id}
           TicketType={Tickets.TicketType}
           TicketState={Tickets.TicketState}
-          deleteOneTicket={this.deleteOneTicket}
           TicketDescription={Tickets.TicketDescription}
           closeOneTicket={this.closeOneTicket}
           key={index} /> 
@@ -77,7 +54,7 @@ export default class Tickets extends React.Component{
     return(
         <div className="content">
             <h2>ALL Ticket</h2>
-            <ul className="all">
+            <ul className="timeline">
             {allTickets}
         </ul>
         </div>);
