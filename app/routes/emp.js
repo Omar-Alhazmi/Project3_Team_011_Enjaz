@@ -9,7 +9,7 @@ const config = require('../../config/db');
 require("dotenv").config();
 
 
-router.post('/register', (req, res) => {
+router.post('/api/emp/register', (req, res) => {
     const { empFullName, empUsername, email, password, empPhone,admin } = req.body;
     const emp = {}
     emp.empFullName = empFullName,
@@ -41,7 +41,7 @@ router.post('/register', (req, res) => {
 
 
 
-router.post('/login', (req, res) => {
+router.post('/api/emp/login', (req, res) => {
     const empUsername = req.body.empUsername;
     const password = req.body.password;
 
@@ -89,7 +89,7 @@ router.post('/login', (req, res) => {
 //  Get Authenticated user profile
  
 
-router.get('/profile', passport.authenticate('jwt', {
+router.get('/api/emp/profile', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
     console.log(`emp login success ${req.user}`);
@@ -101,7 +101,7 @@ router.get('/profile', passport.authenticate('jwt', {
 );
 //-------------Get ALl Emp SendTickets By Emp ID-------------------
 
-router.get('/SendTickets/:EmpId', (req, res) => {
+router.get('/api/emp/SendTickets/:EmpId', (req, res) => {
     Emp.findById(req.params.EmpId)
     .populate('sendTickets') 
     .exec( (err, oneEmp) =>{
@@ -114,7 +114,7 @@ router.get('/SendTickets/:EmpId', (req, res) => {
   
 //-------------Get ALl Emp ReceivedTickets By Emp ID-------------------
 
-router.get('/ReceivedTickets/:EmpId', (req, res) => {
+router.get('/api/emp/ReceivedTickets/:EmpId', (req, res) => {
     Emp.findById(req.params.EmpId)
     .populate('receivedTickets') 
     .exec( (err, oneEmp) =>{

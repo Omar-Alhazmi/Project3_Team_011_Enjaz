@@ -3,7 +3,7 @@ const router = express.Router();
 const Emp = require('../models/Emp');
 const Ticket = require('../models/Ticket');
 //-------------create ticket embedded in emp-------------------
-router.post('/:empId', (req, res) => {
+router.post('/api/:empId', (req, res) => {
   // store new ticket in memory with data from request body
   const { TicketType, TicketDescription, TicketState } = req.body
   let ticket = {}
@@ -28,7 +28,7 @@ router.post('/:empId', (req, res) => {
 
 
 //-------------Get all tickets-------------------
-router.get('/emp/allTickets', (req, res) => {
+router.get('/api/emp/allTickets', (req, res) => {
   Ticket.find({})
   .populate('TicketsEmp')
   .exec((err, Emp) => {
@@ -42,7 +42,7 @@ router.get('/emp/allTickets', (req, res) => {
   });
 });
 //-------------Pass ticket to another Emp-------------------
-router.patch('/PassTicket/:TicketId', (req, res) => {
+router.patch('/api/PassTicket/:TicketId', (req, res) => {
   Ticket.findById(req.params.TicketId, async (error, foundTicket) => {
     try {
       await foundTicket.TicketsEmp.push(req.body.TicketsEmp);
@@ -62,7 +62,7 @@ router.patch('/PassTicket/:TicketId', (req, res) => {
   });
 });
 //-------------Update Ticket by ticket Id-------------------
-router.patch('/UpdateTicket/:TicketId', (req, res) => {
+router.patch('/api/UpdateTicket/:TicketId', (req, res) => {
   Ticket.findById(req.params.TicketId, async (error, foundTicket) => {
     try {
       await foundTicket.update(req.body);
@@ -73,7 +73,7 @@ router.patch('/UpdateTicket/:TicketId', (req, res) => {
   });
 });
 //-------------Delete Ticket by ticket Id-------------------
-router.delete('/DeleteTicket/:TicketId', (req, res) => {
+router.delete('/api/DeleteTicket/:TicketId', (req, res) => {
   Ticket.findById(req.params.TicketId, async (error, foundTicket) => {
     try {
       await foundTicket.remove();
