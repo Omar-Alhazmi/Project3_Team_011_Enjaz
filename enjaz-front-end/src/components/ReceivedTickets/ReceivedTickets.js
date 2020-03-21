@@ -2,6 +2,7 @@
 import React from 'react';
 import ReceivedTicket from './ReceivedTicket'
 import { getreceivedTickets } from '../api';
+// import '../Ticket/Tickets.css';
 import '../SendTicket/SendTickets.css';
 import { getInfo } from '../login/decodeToken'
 
@@ -53,7 +54,7 @@ export default class ReceivedTickets extends React.Component {
         return (
             <div className="content">
                 <h2>Received Ticket</h2>
-                <ul className="TimeLineReceivedTickets">
+                <ul className="timeline">
                     {allTickets}
                 </ul>
             </div>);

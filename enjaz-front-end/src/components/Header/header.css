@@ -109,13 +109,13 @@ main small {
 .nav-content {
   margin-top: 70px;
   padding: 20px;
-  width: 19%;
+  width: 20%;
   max-width: 300px;
   position: absolute;
   top: 0;
   left: 0;
   height: calc(100% - 70px);
-  background: #aaa;
+  background: #2121217a;
   pointer-events: auto;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   transform: translateX(-100%);
@@ -128,13 +128,14 @@ main small {
   display: flex;
   flex-direction: column;
 }
-.nav-content li li {
+.nav-content li  {
   padding: 10px 5px;
   display: block;
   text-transform: uppercase;
-  transition: color .1s;
+  transition: color 1.1s;
 }
-.nav-content li a:hover {
+.nav-content li:hover {
+  cursor: pointer;
   color: lightsteelblue;
 }
 .nav-content li:not(.small) + .small {
@@ -147,7 +148,7 @@ main small {
 .small li {
   font-size: 12px;
   font-weight: 400;
-  color: #888;
+  color: #aaa;
 }
 .small li + li {
   margin-left: 15px;
@@ -172,7 +173,7 @@ li:link {
   outline: 0;
 }
 li {
-  color: currentColor;
+  color: #aaa;
   transition: .2s ease-in-out;
 }
 h1, h2, h3, h4 {
@@ -182,33 +183,12 @@ ul {
   padding: 0;
   list-style: none;
 }
-img {
+/* img {
   vertical-align: middle;
   height: auto;
   width: 100%;
-}
-.container-SendTickets{
-  position: fixed;
-  left: 2%;
-  margin-top: 10vh;
-  width: 30em;
-  height: 30em;
-  box-shadow: 10px 10px 5px rgb(134, 126, 126) ;
-  background-color:transparent;
-  overflow: scroll;
-}  
-.container-ReceivedTickets{
-  position: fixed;
-  right: 1%;
-  margin-top: 10vh;
-  width: 30em;
-  height: 30em;
-  box-shadow: 10px 10px 5px rgb(134, 126, 126) ;
-  background-color:transparent;
-  overflow: scroll;
-}
-
-.NewEmployee-none{
+} */
+/* .NewEmployee-none{
   display: none;
 
 }
@@ -221,4 +201,4 @@ img {
 }
 .Tickets-none{
   display:none;
-}
+} */

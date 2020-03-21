@@ -1,6 +1,6 @@
-//Ticket
+//HistoryTicket
 import React from 'react';
-export default class Ticket extends React.Component{
+export default class HistoryTicket extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -17,12 +17,11 @@ export default class Ticket extends React.Component{
          this.setState({ Fltir:'none' }); 
      }
 }
-// chaneg the ticket state to closeed
-closeClick = (e) => {
+// delete the ticket from DB
+delete = (e) => {
   e.preventDefault();
-  this.props.closeOneTicket(this.props.id);
+  this.props.deleteOneTicket(this.props.id);
 }
-
   render(){
     return(
       <li className="event">
@@ -34,10 +33,10 @@ closeClick = (e) => {
       </h1>
 
         <div className={`Description-${this.state.Fltir}`}>
-        <h2>{this.props.TicketDescription}</h2>
+        <h2> {this.props.TicketDescription} </h2>
           <span class="shots-number">{this.props.TicketType}</span>
           <button className="raise"
-          onClick={this.closeClick}> Close </button>
+          onClick={this.delete}> Delete </button> 
              </div>
       </div>
       </li>

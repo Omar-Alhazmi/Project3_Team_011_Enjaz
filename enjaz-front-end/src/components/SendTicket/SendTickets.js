@@ -50,9 +50,11 @@ export default class SendTickets extends React.Component{
     return(
         <div className="content">
             <h2>Your Tickets</h2>
-        <ul className="TimeLineSendTickets">
+        <ul className="timeline">
             {allTickets}
         </ul>
+        <button onClick={this.props.toggle} > Go back </button>
+
         </div>);
   }
 
