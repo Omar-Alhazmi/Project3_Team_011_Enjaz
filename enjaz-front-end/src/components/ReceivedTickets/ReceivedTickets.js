@@ -22,10 +22,10 @@ export default class ReceivedTickets extends React.Component {
         // Mack API call
          
         getreceivedTickets(mId)
-            .then((reponse) => {
-                console.log('reponse.data', reponse.data)
+            .then((res) => {
+                console.log('reponse.data', res)
                 // this.setTickets(reponse.data)
-                this.setState( {Emp_ReceivedTickets: reponse.data} );
+                this.setState( {Emp_ReceivedTickets: res} );
             })
             .catch((error) => {
                 console.log(' API error: ', error);
