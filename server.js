@@ -54,6 +54,15 @@ app.use((err, req, res, next) => {
   res.sendFile(path.join(__dirname, "../public/500.html"));
 });
 
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static( 'enjaz-front-end/build' ));
+
+  app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'enjaz-front-end', 'build', 'index.html')); // relative path
+  });
+}
+
 console.log("===== HERE WE END =====");
 const PROT = process.env.PROT || 5000;
 app.listen(PROT, () => {
