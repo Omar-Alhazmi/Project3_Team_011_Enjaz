@@ -38,15 +38,7 @@ app.use((req, res, next) => {
 //   next();
 // };
 
-// app.use(checkUserType);
 
-app.use("/api/emp", empRoute);
-// app.use("/api/admin", adminRoute);
-app.use("/api", transactionRoute);
-// Handler for 404 - Resource Not Found
-app.use((req, res, next) => {
-  res.status(404).send("We think you are lost!");
-});
 
 // Handler for Error 500
 app.use((err, req, res, next) => {
@@ -62,6 +54,16 @@ if (process.env.NODE_ENV === 'production') {
       res.sendFile(path.join(__dirname, 'enjaz-front-end', 'build', 'index.html')); // relative path
   });
 }
+
+// app.use(checkUserType);
+
+app.use("/api/emp", empRoute);
+// app.use("/api/admin", adminRoute);
+app.use("/api", transactionRoute);
+// Handler for 404 - Resource Not Found
+app.use((req, res, next) => {
+  res.status(404).send("We think you are lost!");
+});
 
 console.log("===== HERE WE END =====");
 const PROT = process.env.PROT || 5000;
