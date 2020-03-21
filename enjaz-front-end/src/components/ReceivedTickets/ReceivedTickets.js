@@ -25,7 +25,7 @@ export default class ReceivedTickets extends React.Component {
             .then((reponse) => {
                 console.log('reponse.data', reponse.data)
                 // this.setTickets(reponse.data)
-                this.setState( {Emp_SendTickets: reponse.data} );
+                this.setState( {Emp_ReceivedTickets: reponse.data} );
             })
             .catch((error) => {
                 console.log(' API error: ', error);
