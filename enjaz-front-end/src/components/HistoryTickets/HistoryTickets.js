@@ -31,12 +31,13 @@ export default class HistoryTickets extends React.Component {
             });
     }
     deleteOneTicket = (id) => {
+         // Make an API Call to delete a ticket
         deleteTicket(id)
             .then((res) => {
-                const newList = this.state.Tickets.filter((Ticket) => {
+                const history = this.state.Tickets.filter((Ticket) => {
                     return Ticket._id !== id;
                 });
-                this.setState({ history: newList });
+                this.setState({ history });
             })
             .catch((err) => {
             })
