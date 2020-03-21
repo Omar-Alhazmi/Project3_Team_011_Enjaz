@@ -4,7 +4,7 @@ const passport = require('passport');
 // const passport = require('../config/passport');
 const jwt = require('jsonwebtoken');
 const Emp = require('../models/Emp');
-const config = require('../config/db');
+const config = require('../../config/db');
 
 require("dotenv").config();
 

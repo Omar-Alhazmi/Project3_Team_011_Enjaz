@@ -2,13 +2,11 @@ const express = require("express");
 const app = express();
 const connection = require("./config/dbConncection");
 const bodyParser = require("body-parser");
-const empRoute = require("./Routes/emp");
+const empRoute = require("./app/routes/emp");
 const cors = require("cors");
 const passport = require("passport");
 const path = require("path");
-
-const Emp = require("./models/Emp");
-const transactionRoute = require("./Routes/ticket");
+const transactionRoute = require("./app/routes/ticket");
 require("dotenv/config");
 
 connection();
