@@ -1,4 +1,3 @@
-// ReceivedTicket
 import React from 'react';
 import EditTicket from '../NewTicket/EditTicket';
 import { getInfo } from '../login/decodeToken';

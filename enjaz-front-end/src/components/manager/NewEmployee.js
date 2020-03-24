@@ -116,7 +116,7 @@ addEmployee = emp => {
                 onChange={this.handleChange}
               />
             </div><br/>
-            <a href="/AdminHeader"><i className="material-icons">arrow_back</i></a>
+            <a href="/AdminHeader"><i className="material-icons"> arrow_back </i></a>
             <div className="submit-btn" onClick={e => this.formSubmit(e)}>
               Add
             </div>

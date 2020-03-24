@@ -1,4 +1,3 @@
-//Ticket
 import React from 'react';
 export default class Ticket extends React.Component{
   constructor(props){

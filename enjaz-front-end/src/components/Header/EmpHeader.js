@@ -1,4 +1,3 @@
-// EmpHeader
 import React from 'react'
 import './header.css';
 import SendTickets from '../SendTicket/SendTickets'

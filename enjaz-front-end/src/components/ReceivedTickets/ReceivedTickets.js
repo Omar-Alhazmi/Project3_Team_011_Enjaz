@@ -1,8 +1,7 @@
 //ALL Received Tickets 
 import React from 'react';
 import ReceivedTicket from './ReceivedTicket'
-import { getreceivedTickets } from '../api';
-// import '../Ticket/Tickets.css';
+import { getEmpSendTickets } from '../api';
 import '../SendTicket/SendTickets.css';
 import { getInfo } from '../login/decodeToken'
 
@@ -19,27 +18,26 @@ export default class ReceivedTickets extends React.Component {
         // Take the id of curretn user
         let mId = getInfo().data._id
 
-        // Mack API call
-         
-        getreceivedTickets(mId)
-            .then((res) => {
-                console.log('reponse.data', res)
-                // this.setTickets(reponse.data)
-                this.setState( {Emp_ReceivedTickets: res} );
+        // Mack API call 
+        // getreceivedTickets("5e70bf444d6ce11c64e4e3ad")
+        getEmpSendTickets(mId)
+            .then((reponse) => {
+                console.log('reponse.data', reponse.data)
+                this.setTickets(reponse.data)
             })
             .catch((error) => {
                 console.log(' API error: ', error);
             })
     }
-    // setTickets = (Emp_ReceivedTickets) => {
-    //     this.setState({ Emp_ReceivedTickets });
-    // }
+    setTickets = (Emp_ReceivedTickets) => {
+        this.setState({ Emp_ReceivedTickets });
+    }
 
 
     render() {
         let allTickets = <h3> No Tickets! :( </h3>
 
-        if (this.state.Emp_ReceivedTickets.length > 0 ) {
+        if (this.state.Emp_ReceivedTickets.length > 0) {
             allTickets = this.state.Emp_ReceivedTickets.map((Tickets, index) => {
                 return (
                     <ReceivedTicket
@@ -55,7 +53,7 @@ export default class ReceivedTickets extends React.Component {
         return (
             <div className="content">
                 <h2>Received Ticket</h2>
-                <ul className="timeline">
+                <ul className="TimeLineReceivedTickets">
                     {allTickets}
                 </ul>
             </div>);

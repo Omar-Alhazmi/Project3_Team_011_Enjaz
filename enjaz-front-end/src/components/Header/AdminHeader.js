@@ -1,4 +1,3 @@
-//AdminHeader
 import React from "react";
 import "./header.css";
 import Tickets from "../Ticket/Tickets";

@@ -1,4 +1,3 @@
-//ALL  Tickets 
 import React from 'react';
 import Ticket from './Ticket'
 import { getAllTicket , closeTicket } from '../api';

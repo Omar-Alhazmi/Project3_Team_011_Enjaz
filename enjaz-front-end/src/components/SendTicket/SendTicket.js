@@ -1,4 +1,3 @@
-// SendTicket
 import React from 'react';
 export default class SendTicket extends React.Component{
   constructor(props){

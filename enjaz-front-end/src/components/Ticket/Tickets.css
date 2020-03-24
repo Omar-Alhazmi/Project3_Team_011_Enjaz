@@ -8,9 +8,8 @@
   height: 1em;
 }
 body {
-  /* lightsteelblue */
   /* background: rgb(206, 206, 206); */
-  /* background: rgb(221, 221, 221); */
+  background: rgb(221, 221, 221);
   font-family: 'Raleway', sans-serif;
 }
 span,
@@ -24,7 +23,7 @@ span {
 h1 {
   font-family: 'Raleway', sans-serif;
   letter-spacing: 1.5px;
-  color: white;
+  color: #777;
   font-weight: 100;
   font-size: 2.4em;
   margin: 0;
@@ -34,7 +33,7 @@ h1 {
 h2 {
   font-family: 'Raleway', sans-serif;
   letter-spacing: 1.5px;
-  color: rgb(119, 113, 113);
+  color: #999;
   font-weight: 100;
   font-size: 1.0em;
 }
@@ -42,7 +41,7 @@ h2 {
   margin-top: 50px;
   text-align: center;
 }
-.timeline{
+.all{
   border-left: 0.25em solid #4298c3;
   background: rgba(255, 255, 255, 0.1);
   margin: 2em auto;
@@ -105,16 +104,8 @@ h2 {
     position: relative;
     text-align: right;
 }
-.Description-none{
+.DescriptionFltir-none{
   cursor: pointer;  
   text-indent: 2px;
   display: none;
-} 
-button {
-  padding: 2%;
-  border-radius: 12px;
-  cursor: pointer;
-  background: none;
-  border: 2px solid;
-  line-height: 1;
 }

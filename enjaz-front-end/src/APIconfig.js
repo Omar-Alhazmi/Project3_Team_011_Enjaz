@@ -4,8 +4,8 @@ let apiURL ;
 const expressPort = 5000;
 const apiUrls = {
     //http://localhost:5000/emp/
-    development:`http://localhost:58435/api`,
-    production:`https://enjaz-0011.herokuapp.com/api`,
+    development:`http://localhost:${expressPort}/api`,
+    production:`http://aqueous-atoll-85096.herokuapp.com`,
 } 
 
 if( window.location.hostname === 'localhost' ){

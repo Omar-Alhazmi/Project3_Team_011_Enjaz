@@ -64,6 +64,7 @@ export const UpdateTicket = (req,id) => {
     method: 'patch',
     url: apiURL + `/UpdateTicket/${id}`,
     data:{
+      TicketType:req.TicketType,
       TicketDescription: req.TicketDescription,
       TicketState: req.TicketState,
     }

@@ -63,7 +63,8 @@ export default class HistoryTickets extends React.Component {
               <ul className="timeline">
               {History}
           </ul>
-          <button onClick={this.props.toggle} > Go back </button>
+          <li onClick={this.props.toggle}><i className="material-icons"> arrow_back </i></li>
+          {/* <button onClick={this.props.toggle} > Go back </button> */}
           </div>);
     }
 

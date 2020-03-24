@@ -1,4 +1,3 @@
-//ALL SendTickets
 import React from 'react';
 import SendTicket from './SendTicket'
 import { getEmpSendTickets } from '../api';
