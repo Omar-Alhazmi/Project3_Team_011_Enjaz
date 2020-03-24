@@ -1,7 +1,6 @@
-body {
-    background-color:rgb(105, 105, 105);
+  body {
+    background: rgb(168, 188, 214);
   }
-  
   .parent-wrapper {
     position: relative;
     width: 400px;
