@@ -8,6 +8,10 @@
     "test": "mocha --exit",
     "server": "nodemon server.js",
     "serve": "nodemon server.js",
+    "build": "cd enjaz-front-end && npm run build",
+    "install-client": "cd enjaz-front-end && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "client": "cd enjaz-front-end && npm start",
     "s": "nodemon server.js",
     "debug-server": "DEBUG=express:* nodemon server.js"
   },
