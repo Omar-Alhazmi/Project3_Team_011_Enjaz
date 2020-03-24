@@ -17,14 +17,15 @@ export default class HistoryTickets extends React.Component {
     componentDidMount() {
         // Mack API call to det all the Ticket of closed state 
         getAllTicket()
-            .then(reponse => {
-                console.log("reponse.data", reponse.data);
-                const history = reponse.data.filter(Ticket => {
+            .then(repose => {
+                console.log("reponse.data", repose.data);
+                const newhistory = repose.data.filter((Ticket) => {
                     if (Ticket.TicketState === "closed") {
-                        return reponse.data;
+                        return repose.data;
                     }
-                });
-                this.setState({ history });
+                })
+                this.setState({ history: newhistory });
+                
             })
             .catch(error => {
                 console.log(" API error: ", error);
@@ -34,16 +35,18 @@ export default class HistoryTickets extends React.Component {
          // Make an API Call to delete a ticket
         deleteTicket(id)
             .then((res) => {
-                const history = this.state.Tickets.filter((Ticket) => {
-                    return Ticket._id !== id;
+                const newhistory = this.state.history.filter((Ticket) => {
+                    return console.log("return",Ticket._id),Ticket._id !== id; 
                 });
-                this.setState({ history });
+                this.setState({ history:newhistory });
+                console.log("setState",this.state.history)
             })
             .catch((err) => {
             })
     }
 
     render(){
+        console.log(this.state.history)
         let History = <h3> No History Tickets.. </h3>
         if(this.state.history !== null ){
             History= this.state.history.map( (Tickets , index)=> {

@@ -36,7 +36,7 @@ delete = (e) => {
         <h2> {this.props.TicketDescription} </h2>
           <span class="shots-number">{this.props.TicketType}</span>
           <button className="raise"
-          onClick={this.delete}> Delete </button> 
+          onClick={e => this.delete(e)}> Delete </button> 
              </div>
       </div>
       </li>

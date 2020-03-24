@@ -98,8 +98,8 @@ app.use((req, res, next) => {
   res.status(404).send("We think you are lost!");
 });
 
-app.listen(Port, () => {
-  console.log(`("===== HERE WE END ====="LISTENING to http://localhost:${Port}`);
+app.listen(port, () => {
+  console.log(`("===== HERE WE END ====="LISTENING to http://localhost:${port}`);
 });
 
 // needed for testing
