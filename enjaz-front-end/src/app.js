@@ -33,7 +33,7 @@ export default class App extends React.Component {
 
             //        * ReceivedTickets => display all employee received ticket
             //          - ReceivedTicket => display one ticket of all received tickets
-            //            . EditTicket => display TicketForm component
+            //            . EditTicket => display EditForm component
             //              .. EditForm => display form to edit new ticket
 
             //        * NewTicket => display TicketForm component

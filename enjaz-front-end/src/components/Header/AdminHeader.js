@@ -1,8 +1,8 @@
 import React from "react";
 import "./header.css";
-import Tickets from "../AllTicket/Tickets";
+import AllTicket from "../AllTicket/AllTicket";
 import HistoryTickets from '../HistoryTickets/HistoryTickets'
-import NewEmployee from "../manager/NewEmployee";
+import NewEmployee from "../NewEmployee/NewEmployee";
 
 export default class AdminHeader extends React.Component {
     constructor(props) {
@@ -60,7 +60,7 @@ export default class AdminHeader extends React.Component {
                                 <HistoryTickets toggle={e => this.togglehandler_HistoryTickets(e)}/>
 
                                 :
-                                <Tickets/>
+                                <AllTicket/>
                             }</>
                         : <NewEmployee AddClicked={this.AddClicked} />
                     }
