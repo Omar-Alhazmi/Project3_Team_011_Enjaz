@@ -1,6 +1,6 @@
 import React from "react";
 import "./header.css";
-import Tickets from "../Ticket/Tickets";
+import Tickets from "../AllTicket/Tickets";
 import HistoryTickets from '../HistoryTickets/HistoryTickets'
 import NewEmployee from "../manager/NewEmployee";
 
