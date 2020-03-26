@@ -33,16 +33,16 @@ export default class AdminHeader extends React.Component {
     render() {
         return (
             <div className="page">
-                <header tabIndex="0">Enjaz</header>
+                <header tabindex="0">Enjaz</header>
                 <div className="nav-container">
                     <div className="bg"></div>
-                    <div className="button"tabIndex="0" >
+                    <div className="button"tabindex="0" >
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </div>
 
-                    <div className="nav-content" tabIndex="0">
+                    <div className="nav-content" tabindex="0">
                         <ul>
                             <li onClick={e=>this.togglehandler(e)}>NewEmployee</li>
 

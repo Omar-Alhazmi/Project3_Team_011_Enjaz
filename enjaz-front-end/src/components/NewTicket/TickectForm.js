@@ -53,7 +53,7 @@ class TicketForm extends React.Component {
             </select>
             
         </div><br/>
-        <li onClick={this.props.tog}><i  className="material-icons">arrow_back</i></li>
+        <a href="/EmpHeader"><i className="material-icons">arrow_back</i></a>
 
         <div className="submit-btn" onClick= {e=>this.props.formAdd(e)}>Add</div>
         </div>

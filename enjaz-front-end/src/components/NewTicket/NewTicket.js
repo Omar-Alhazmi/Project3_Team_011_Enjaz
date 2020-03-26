@@ -26,7 +26,7 @@ class NewTicket extends React.Component {
  
     return (
       <div>
-        <TicketForm handleChange={this.handleChange} newTicket={this.newTicket}  formAdd={this.formAdd} tog={this.props.tog}/>
+        <TicketForm handleChange={this.handleChange} newTicket={this.newTicket}  formAdd={this.formAdd}/>
       </div>
     );
   }
