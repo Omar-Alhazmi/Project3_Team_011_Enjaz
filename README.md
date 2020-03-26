@@ -1,4 +1,4 @@
-__
+
 ![Enjaj](/Enjaz.png)
 ___
 <!-- **Note: !** -->
@@ -27,3 +27,30 @@ Our Application is to tracking a transactions, Will be available for multiple se
 -  As an maneger, I can see histoy ticket 
 - Employee able to download files to the ticket.
 - Responsive UI
+
+# Enjaj
+​
+​
+[Visit Website](https://enjaz-0011.herokuapp.com/)
+​
+<!-- **Note: !** -->
+​
+[Document](Enjaz.pdf)
+​
+​
+- List of Technologies used :
+  - Zoom
+  - React App
+  - Axios
+  - Local Storage
+  - Bootstrap
+  - Express
+  - Mongoose
+
+
+#### future work :
+ 1. As an employee, I can pass ticket to another employee
+ 2. As an manager, I can see history ticket 
+ 3. employee able to download files to the ticket.
+ 4. Responsive UI
+
