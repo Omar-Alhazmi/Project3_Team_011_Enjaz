@@ -1,11 +1,10 @@
 import React from "react";
-import TicketForm from "./TickectForm";
+import EditForm from "./EditForm";
 
 class NewTicket extends React.Component {
   constructor() {
     super();
     this.state = {
-      TicketType: "",
       TicketDescription: "",
       TicketState: ""
     };
@@ -15,18 +14,18 @@ class NewTicket extends React.Component {
       [event.target.name]: event.target.value
     });
 
-  formAdd = e => {
-    const newTicket = this.state;
-    console.log(newTicket, " NewTicket");
-    e.preventDefault();
-    this.props.addTicket(newTicket);
-  };
 
+  formEdit = e => {
+    const EditTicket = this.state;
+    console.log(EditTicket, "EditTicket");
+    e.preventDefault();
+    this.props.EditUpdateTicket(EditTicket);
+  };
   render() {
- 
+
     return (
       <div>
-        <TicketForm handleChange={this.handleChange} newTicket={this.newTicket}  formAdd={this.formAdd} tog={this.props.tog}/>
+        <EditForm handleChange={this.handleChange}  EditTicket={this.EditTicket} formEdit={this.formEdit}/>
       </div>
     );
   }
