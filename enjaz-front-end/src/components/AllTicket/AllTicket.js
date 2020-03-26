@@ -2,7 +2,7 @@ import React from 'react';
 import Ticket from './Ticket'
 import { getAllTicket , closeTicket } from '../api';
 import './Tickets.css'; 
-export default class Tickets extends React.Component{
+export default class AllTicket extends React.Component{
     constructor(props){
         super(props)
         this.state = {
