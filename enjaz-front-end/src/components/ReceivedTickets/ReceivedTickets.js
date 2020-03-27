@@ -1,7 +1,7 @@
 //ALL Received Tickets 
 import React from 'react';
 import ReceivedTicket from './ReceivedTicket'
-import { getEmpSendTickets } from '../api';
+import { getReceivedTickets } from '../api';
 import '../SendTicket/SendTickets.css';
 import { getInfo } from '../login/decodeToken'
 
@@ -20,10 +20,10 @@ export default class ReceivedTickets extends React.Component {
 
         // Mack API call 
         // getreceivedTickets("5e70bf444d6ce11c64e4e3ad")
-        getEmpSendTickets(mId)
-            .then((reponse) => {
-                console.log('reponse.data', reponse.data)
-                this.setTickets(reponse.data)
+        getReceivedTickets(mId)
+            .then((response) => {
+                console.log('reponse.data', response.data)
+                this.setTickets(response.data)
             })
             .catch((error) => {
                 console.log(' API error: ', error);
