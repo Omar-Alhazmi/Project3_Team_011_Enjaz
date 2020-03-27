@@ -1,8 +1,8 @@
 import React from "react";
 import "./header.css";
-import Tickets from "../Ticket/Tickets";
+import AllTicket from "../AllTicket/AllTicket";
 import HistoryTickets from '../HistoryTickets/HistoryTickets'
-import NewEmployee from "../manager/NewEmployee";
+import NewEmployee from "../NewEmployee/NewEmployee";
 
 export default class AdminHeader extends React.Component {
     constructor(props) {
@@ -33,16 +33,16 @@ export default class AdminHeader extends React.Component {
     render() {
         return (
             <div className="page">
-                <header tabindex="0">Enjaz</header>
+                <header tabIndex="0">Enjaz</header>
                 <div className="nav-container">
                     <div className="bg"></div>
-                    <div className="button"tabindex="0" >
+                    <div className="button"tabIndex="0" >
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </div>
 
-                    <div className="nav-content" tabindex="0">
+                    <div className="nav-content" tabIndex="0">
                         <ul>
                             <li onClick={e=>this.togglehandler(e)}>NewEmployee</li>
 
@@ -60,7 +60,7 @@ export default class AdminHeader extends React.Component {
                                 <HistoryTickets toggle={e => this.togglehandler_HistoryTickets(e)}/>
 
                                 :
-                                <Tickets/>
+                                <AllTicket/>
                             }</>
                         : <NewEmployee AddClicked={this.AddClicked} />
                     }

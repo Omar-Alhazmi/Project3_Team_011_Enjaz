@@ -1,7 +1,7 @@
 //HistoryTickets
 import React from "react";
 import HistoryTicket from './HistoryTicket'
-import "../Ticket/Tickets.css";
+import "../AllTicket/Tickets.css";
 import { getAllTicket , deleteTicket } from "../api";
 
 export default class HistoryTickets extends React.Component {

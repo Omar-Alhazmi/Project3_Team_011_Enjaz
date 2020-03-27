@@ -28,6 +28,7 @@ export default class EmpHeader extends React.Component{
       toggleTicket: !this.state.toggleTicket
     })
   }
+
   logOut= e =>{
     e.preventDefault();
     this.props.history.push('/')
@@ -52,11 +53,11 @@ export default class EmpHeader extends React.Component{
     return (
 <div className="page">
 
-  <header tabindex="0">Enjaz</header>
+  <header tabIndex="0">Enjaz</header>
   <div className="nav-container">
     <div className="bg"></div>
     
-    <div className="button" tabindex="0">
+    <div className="button" tabIndex="0">
       
       <span className="icon-bar"></span>
       <span className="icon-bar"></span>
@@ -64,7 +65,7 @@ export default class EmpHeader extends React.Component{
 
     </div>
 
-    <div className="nav-content" tabindex="0">
+    <div className="nav-content" tabIndex="0">
       <ul>
       <li onClick={e=>this.togglehandler_SendTickets(e)}>Your Tickets</li>
       <li onClick={e=>this.togglehandler(e)}>New Ticket</li>
@@ -84,7 +85,7 @@ export default class EmpHeader extends React.Component{
   :  
     <ReceivedTickets />
   }</>
-    : <NewTicket addTicket={this.addTicket} />
+    : <NewTicket addTicket={this.addTicket}  tog={e=>this.togglehandler(e)}/>
     }
   </main>
 
